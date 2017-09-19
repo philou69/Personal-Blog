@@ -1,0 +1,23 @@
+{% extends ":default:layout.html.twig" %}
+
+
+{% block title %}
+    Liste des langages
+{% endblock %}
+
+{% block content %}
+    <h1>Liste des categories</h1>
+        {% for category in categories %}
+            {% if loop.firs %}
+                <ul>
+            {% endif %}
+            <li><a href="">{{ category.category }}</a></li>
+            {% if loop.last %}
+                </ul>
+            {% endif %}
+        {% else %}
+            <div>
+                Aucunes catégories pour l'instant
+            </div>
+        {% endfor %}
+{% endblock %}

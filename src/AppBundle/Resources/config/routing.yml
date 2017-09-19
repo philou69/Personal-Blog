@@ -1,5 +1,7 @@
-app_home:
-    path: /
-    defaults:
-        _controller: AppBundle:App:index
-    methods: [ 'GET' ]
+app_admin:
+    prefix: /admin
+    resource: routing/admin.yml
+
+app_app:
+    prefix: /
+    resource: routing/app.yml

@@ -1,0 +1,3 @@
+admin_category:
+    prefix: /category
+    resource: administration/category.yml

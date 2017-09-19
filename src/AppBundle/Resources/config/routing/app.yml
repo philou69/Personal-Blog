@@ -1,0 +1,11 @@
+app_list:
+    path: /list
+    defaults:
+        _controller: AppBundle:App:list
+    methods: [ 'GET' ]
+
+app_home:
+    path: /
+    defaults:
+        _controller: AppBundle:App:index
+    methods: [ 'GET' ]
