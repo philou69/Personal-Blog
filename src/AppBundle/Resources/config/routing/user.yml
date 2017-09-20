@@ -1,0 +1,11 @@
+user_connect:
+    path: /connect
+    defaults:
+        _controller: AppBundle:User:connect
+    methods: ['GET', 'POST']
+
+user_logout:
+    path: /logout
+
+login_check:
+    path: /login_check
