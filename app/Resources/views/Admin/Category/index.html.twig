@@ -7,14 +7,14 @@
 
 {% block content %}
     <h1>Liste des catégories </h1>
-    <a href="{{ path('admin_category_create') }}" class="pull-right">Ajouter une catégorie</a>
+    <a href="{{ path('admin_entity_create', {'entityName': 'category'}) }}" class="pull-right">Ajouter une catégorie</a>
 
-    {% for category in categories %}
+    {% for category in objects %}
         {% if loop.first %}
             <ul>
         {% endif %}
-        <li><a href="{{ path('admin_category_edit', {'slug': category.slug}) }}">{{ category.category }}</a>
-            <form action="{{ path('admin_category_delete') }}" method="post">
+        <li><a href="{{ path('admin_entity_edit', {'entityName': 'category','slug': category.slug}) }}">{{ category.category }}</a>
+            <form action="{{ path('admin_entity_delete', {'entityName': 'category'}) }}" method="post">
                 <input type="hidden" name="id" value="{{ category.id }}">
                 <button type="submit" id="delete-{{ category.slug }}" class="btn btn-danger"> <i class="fa fa-trash-o"></i></button>
             </form></li>

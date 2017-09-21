@@ -1,0 +1,24 @@
+admin_entity_create:
+    path: /create
+    defaults:
+        _controller: AppBundle:Administration\EntityAdmin:create
+    methods: [ 'GET', 'POST' ]
+
+
+admin_entity_edit:
+    path: /{slug}/edit
+    defaults:
+        _controller: AppBundle:Administration\EntityAdmin:edit
+    methods: [ 'GET', 'POST' ]
+
+admin_entity_delete:
+    path: /delete
+    defaults:
+        _controller: AppBundle:Administration\EntityAdmin:delete
+    methods: ['POST']
+
+admin_entity_index:
+    path: /index
+    defaults:
+        _controller: AppBundle:Administration\EntityAdmin:index
+    methods: [ 'GET' ]

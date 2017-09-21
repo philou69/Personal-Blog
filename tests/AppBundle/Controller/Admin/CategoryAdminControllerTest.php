@@ -41,7 +41,7 @@ class CategoryAdminControllerTest extends DefaultControllerTest
         $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertEquals('AppBundle\Controller\Administration\CategoryAdminController::indexAction', $client->getRequest()->attributes->get('_controller'));
+        $this->assertEquals('AppBundle\Controller\Administration\EntityAdminController::indexAction', $client->getRequest()->attributes->get('_controller'));
     }
 
     /**
@@ -55,14 +55,14 @@ class CategoryAdminControllerTest extends DefaultControllerTest
 
         $form = $crawler->selectButton('Enregistrer')->form();
 
-        $form['category[category]'] = 'PHP test21';
+        $form['edit_category[category]'] = 'PHP test21';
 
         $client->submit($form);
 
         $client->followRedirect();
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertEquals('AppBundle\Controller\Administration\CategoryAdminController::indexAction', $client->getRequest()->attributes->get('_controller'));
+        $this->assertEquals('AppBundle\Controller\Administration\EntityAdminController::indexAction', $client->getRequest()->attributes->get('_controller'));
     }
 
     /**

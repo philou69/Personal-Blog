@@ -3,21 +3,3 @@ admin_category_index:
     defaults:
         _controller: AppBundle:Administration\CategoryAdmin:index
     methods: [ 'GET' ]
-
-admin_category_create:
-    path: /create
-    defaults:
-        _controller: AppBundle:Administration\CategoryAdmin:create
-    methods: [ 'GET', 'POST' ]
-
-admin_category_edit:
-    path: /{slug}/edit
-    defaults:
-        _controller: AppBundle:Administration\CategoryAdmin:edit
-    methods: [ 'GET', 'POST' ]
-
-admin_category_delete:
-    path: /delete
-    defaults:
-        _controller: AppBundle:Administration\CategoryAdmin:delete
-    methods: ['POST']
