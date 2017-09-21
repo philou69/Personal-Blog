@@ -2,4 +2,8 @@ admin_category:
     prefix: /category
     resource: administration/category.yml
 
-
+admin_index:
+    path: /
+    defaults:
+        _controller: AppBundle:Administration\Admin:index
+    methods: ['GET']

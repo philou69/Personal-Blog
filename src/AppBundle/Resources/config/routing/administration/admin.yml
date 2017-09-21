@@ -1,0 +1,4 @@
+admin_index:
+    path: /
+    defaults:
+        _controller: AppBundle:Administration\Admin:index
