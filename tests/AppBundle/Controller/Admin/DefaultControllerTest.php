@@ -8,6 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
+/**
+ * Class DefaultControllerTest
+ * @package Tests\AppBundle\Controller\Admin
+ * Class de controller Admin pour la connection de l'administrateur
+ */
 class DefaultControllerTest extends WebTestCase
 {
     protected $client = null;
@@ -17,6 +22,10 @@ class DefaultControllerTest extends WebTestCase
         $this->client = $this->logIn();
     }
 
+    /**
+     * Fonction pour connecter l'administrateur
+     * @return \Symfony\Bundle\FrameworkBundle\Client
+     */
     private function logIn()
     {
         $client = static::createClient();

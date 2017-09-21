@@ -1,0 +1,11 @@
+{% extends ":default:layout.html.twig" %}
+
+{% block title %}
+    Création d'une catégorie
+{% endblock %}
+
+{% block content %}
+    <a href="{{ path('admin_category_index') }}" class="pull-right">Retour à la liste</a>
+    <h1>Nouvelle categorie</h1>
+    {% include ':Admin/Category:form.html.twig' with {'form': form} %}
+{% endblock %}

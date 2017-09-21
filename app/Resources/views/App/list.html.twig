@@ -8,7 +8,7 @@
 {% block content %}
     <h1>Liste des categories</h1>
         {% for category in categories %}
-            {% if loop.firs %}
+            {% if loop.first %}
                 <ul>
             {% endif %}
             <li><a href="">{{ category.category }}</a></li>

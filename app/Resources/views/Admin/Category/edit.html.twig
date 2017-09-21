@@ -1,0 +1,10 @@
+{% extends ":default:layout.html.twig" %}
+
+{% block title %}
+    Edition de {{ form.vars.data.category }}
+{% endblock %}
+
+{% block content %}
+    <h1>Edition de la catégorie {{ form.vars.data.category }}</h1>
+    {% include ':Admin/Category:form.html.twig' with {'form': form} %}
+{% endblock %}
