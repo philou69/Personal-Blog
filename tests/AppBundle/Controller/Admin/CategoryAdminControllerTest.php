@@ -16,7 +16,7 @@ class CategoryAdminControllerTest extends DefaultControllerTest
 
         $client = $this->client;
 
-        $crawler = $client->request('GET', '/admin/category/index');
+        $crawler = $client->request('GET', '/admin/category/');
         // Pour l'heure le code retour un 302,
         // Il faut connecter le visiteur
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
@@ -71,7 +71,7 @@ class CategoryAdminControllerTest extends DefaultControllerTest
     public function testDelete()
     {
         $client = $this->client;
-        $crawler = $client->request('GET', '/admin/category/index');
+        $crawler = $client->request('GET', '/admin/category/');
 
         $this->assertContains('PHP test21', $client->getResponse()->getContent());
 

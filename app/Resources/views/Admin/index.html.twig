@@ -7,7 +7,7 @@
 {% block content %}
     <h1>Accueil de l'administration</h1>
     <ul>
-        <li><a href="">Liste des articles</a></li>
-        <li><a href="">Liste des categories</a></li>
+        <li><a href="{{ path('admin_entity_index', {'entityName': 'category'}) }}">Les categories</a></li>
+        <li><a href="{{ path('admin_entity_index', {'entityName': 'post'}) }}">Les articles</a></li>
     </ul>
 {% endblock %}

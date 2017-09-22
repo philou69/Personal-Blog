@@ -2,11 +2,7 @@ admin_entity:
     prefix: /{entityName}
     resource: administration/entity.yml
     requirements:
-        entityName: category
-
-admin_category:
-    prefix: /category
-    resource: administration/category.yml
+        entityName: category|post
 
 admin_index:
     path: /

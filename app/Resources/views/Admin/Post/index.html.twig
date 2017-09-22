@@ -1,0 +1,31 @@
+{% extends ':default:layout.html.twig' %}
+
+{% block title %}
+    Liste articles {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <a href="{{ path('admin_index') }}" class="pull-right">Retour à l'accueil</a>
+    <a href="{{ path('admin_entity_create', {'entityName': 'post'}) }}" class="pull-right">Créer un article</a>
+        <h1>Liste des articles</h1>
+
+    {% for post in objects %}
+        {% if loop.first %}
+            <ul>
+        {% endif %}
+            <li>
+                <a href="{{ path('admin_entity_edit', {'entityName': 'post', 'slug': post.slug}) }}">{{ post.title }}</a>
+                <form action="{{ path('admin_entity_delete', {'entityName': 'post'}) }}" method="post">
+                    <input type="hidden" name="id" id="id" value="{{ post.id }}">
+                    <button type="submit" id="delete-{{ post.slug }}"><i class="fa fa-trash-o"></i></button>
+                </form>
+            </li>
+        {% if loop.last %}
+            </ul>
+        {% endif %}
+        {% else %}
+        <div>
+            Pas d'article pour l'heure
+        </div>
+    {% endfor %}
+{% endblock %}

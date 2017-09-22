@@ -18,7 +18,7 @@ admin_entity_delete:
     methods: ['POST']
 
 admin_entity_index:
-    path: /index
+    path: /
     defaults:
         _controller: AppBundle:Administration\EntityAdmin:index
     methods: [ 'GET' ]

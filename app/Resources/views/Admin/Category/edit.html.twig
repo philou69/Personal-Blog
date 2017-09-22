@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    <a href="{{ path('admin_entity_index', {'entityName': 'category'}) }}" class="pull-right">Retour à la liste</a>
     <h1>Edition de la catégorie {{ form.vars.data.category }}</h1>
     {% include ':Admin/Category:form.html.twig' with {'form': form} %}
 {% endblock %}

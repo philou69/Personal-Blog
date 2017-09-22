@@ -171,4 +171,9 @@ class Category
     {
         return $this->slug;
     }
+
+    public function __toString()
+    {
+        return ($this->parent ? $this->parent->__toString() . ' - ' : ' ') . $this->category;
+    }
 }

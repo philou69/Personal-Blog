@@ -25,15 +25,12 @@ class EntityAdminController extends Controller
      */
     public function createAction($entityName, Request $request)
     {
-        // On va commencer par passer l'entityName en majuscule.
-        $entityName = ucfirst($entityName);
-
         // On crée ensuite le nom de l'entity et du form correspondant  avec le namespace
         // Pour créer dynamiquement une instance de l'entity et du form
-        $className = 'AppBundle\Entity\\' . $entityName;
+        $className = 'AppBundle\Entity\\' . ucfirst($entityName);
         $object = new $className();
 
-        $formName = "AppBundle\Form\Type\\" . $entityName . 'Type';
+        $formName = "AppBundle\Form\Type\\" . ucfirst($entityName) . 'Type';
 
         $form = $this->createForm( $formName , $object);
         $form->handleRequest($request);
@@ -45,10 +42,10 @@ class EntityAdminController extends Controller
             $em->flush();
 
             $this->addFlash('info', 'La demande a bien été enregistré !');
-            return $this->redirectToRoute('admin_category_index');
+            return $this->redirectToRoute('admin_entity_index', ['entityName' => $entityName]);
         }
 
-        return $this->render(':Admin/'. $entityName . ':create.html.twig', ['form' => $form->createView()]);
+        return $this->render(':Admin/'. ucfirst($entityName) . ':create.html.twig', ['form' => $form->createView()]);
     }
 
 
@@ -64,7 +61,9 @@ class EntityAdminController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $object = $em->getRepository('AppBundle:'. ucfirst($entityName))->findOneBy(['slug' =>$slug]);
-
+        if($object === null){
+            throw $this->createAccessDeniedException('Demande incorrect');
+        }
         $formName = 'AppBundle\Form\Type\Edit' . ucfirst($entityName) . 'Type';
         $form = $this->createForm($formName, $object);
         $form->handleRequest($request);
@@ -76,7 +75,7 @@ class EntityAdminController extends Controller
 
             $this->addFlash('info', 'La demande a bien été modifié');
 
-            return $this->redirectToRoute("admin_category_index");
+            return $this->redirectToRoute("admin_entity_index", ['entityName' => $entityName]);
         }
         return $this->render(':Admin/' . ucfirst($entityName) . ':edit.html.twig', ['form' => $form->createView()]);
     }
@@ -97,7 +96,7 @@ class EntityAdminController extends Controller
             $em->flush();
             $this->addFlash('success', 'La catégorie a bien été supprimé');
         } else {
-            $this->addFlash('danger', 'Vous essayer de supprimer une categorie inexistante');
+            throw $this->createAccessDeniedException('Demande rejeter!');
         }
 
         return $this->redirectToRoute('admin_entity_index', ['entityName' => $entityName]);

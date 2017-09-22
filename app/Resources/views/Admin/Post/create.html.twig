@@ -1,0 +1,20 @@
+{% extends ":default:layout.html.twig" %}
+
+{% block title %}
+    Création d'un article | Admin
+{% endblock %}
+
+{% block content %}
+    <a href="{{ path('admin_entity_index', {'entityName': 'post'}) }}">Retour à la liste</a>
+    <h1>Création d'un article</h1>
+    {% include ':Admin/Post:form.html.twig' with {'form': form } %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote()
+        })
+    </script>
+{% endblock %}

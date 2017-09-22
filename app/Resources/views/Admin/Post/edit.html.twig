@@ -1,0 +1,12 @@
+{% extends ":default:layout.html.twig" %}
+
+{% block title %}
+    Edition de {{ form.vars.data.title }}
+{% endblock %}
+
+{% block content %}
+    <a href="{{ path('admin_entity_index', {'entityName': 'post'}) }}">Retour à la liste</a>
+    <h1>Edition de {{ form.vars.data.title }}</h1>
+
+    {% include ':Admin/Post:form.html.twig' %}
+{% endblock %}
